@@ -35,3 +35,4 @@ USE poketracker;
 
 -- -- );
 
+select * from types;
