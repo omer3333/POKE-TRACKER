@@ -35,4 +35,9 @@ USE poketracker;
 
 -- -- );
 
-select * from types;
+select * from pokemon_types;
+-- select * from pokemon;
+-- INSERT into pokemon_types(pokemon_id, type_name) values(1,'fire');
+
+-- select * from types;
+-- INSERT IGNORE into types(name) values('water');
