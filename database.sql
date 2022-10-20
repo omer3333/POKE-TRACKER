@@ -35,9 +35,22 @@ USE poketracker;
 
 -- -- );
 
-select * from pokemon_types;
+select * from types;
 -- select * from pokemon;
--- INSERT into pokemon_types(pokemon_id, type_name) values(1,'fire');
+-- insert into trainer(name, town) values ('brook', 'palet');
+-- select * from trainer;
+-- INSERT into pokemon_trainer(pokemon_id, trainer_name) values(3,'ash');
 
--- select * from types;
--- INSERT IGNORE into types(name) values('water');
+-- select * from pokemon_trainer;
+-- DELETE FROM trainer WHERE name='fire';
+
+-- select * from pokemon_trainer;
+-- INSERT IGNORE into pokem(name) values('water');
+-- select * from trainer; 
+
+-- DELETE FROM pokemon;
+
+-- select * from pokemon;
+-- DELETE FROM trainer;
+
+select * from pokemon_types;
