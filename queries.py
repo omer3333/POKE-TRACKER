@@ -42,3 +42,23 @@ def find_owners(pokemon_name):
             return result
     except:
         print("Error")
+
+def find_roster(trainer_name):
+    try:
+        with connection.cursor() as cursor:
+            query = f"SELECT name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id AND pt.trainer_name ={trainer_name}"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            return result
+    except:
+        print("Error")
+
+def most_owned_pokemon():
+    try:
+        with connection.cursor() as cursor:
+            query = f"SELECT name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id AND pt.trainer_name ={trainer_name}"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            return result
+    except:
+        print("Error")

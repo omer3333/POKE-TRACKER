@@ -34,22 +34,12 @@ USE poketracker;
 
 -- );
 
--- INSERT into pokemon(id, name, height, weight) values(1, "charmer", 5,7);
--- INSERT into pokemon(id, name, height, weight) values(2, "charm", 5,4);
--- INSERT into pokemon(id, name, height, weight) values(3, "charme", 5,9);
+select * from pokemon_types;
+-- select * from pokemon;
+-- INSERT into pokemon_types(pokemon_id, type_name) values(1,'fire');
 
--- INSERT into trainer(name, town) values('rano','bdkbs');
--- INSERT into trainer(name, town) values('ran','bds');
--- INSERT into trainer(name, town) values('ro','dkbs');
-
--- INSERT INTO pokemon_trainer(trainer_name,pokemon_id) VALUES("rano",1);
--- INSERT INTO pokemon_trainer(trainer_name,pokemon_id) VALUES("rano",2);
--- INSERT INTO pokemon_trainer(trainer_name,pokemon_id) VALUES("ran",1);
--- INSERT INTO pokemon_trainer(trainer_name,pokemon_id) VALUES("rano",3);
-
--- select * from pokemon_trainer;
-
--- SELECT trainer_name,pokemon_id,name,id 
-SELECT trainer_name 
-FROM pokemon AS p ,pokemon_trainer AS pt
-WHERE p.id = pt.pokemon_id AND p.name = "charmer"
+-- select * from types;
+-- INSERT IGNORE into types(name) values('water');
+-- SELECT * FROM pokemon_trainer
+-- SELECT name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id AND pt.trainer_name ="rano"
+-- SELECT name,COUNT(pokemon_id) FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id GROUP BY name
