@@ -34,12 +34,22 @@ USE poketracker;
 
 -- );
 
-select * from pokemon_types;
+select * from types;
 -- select * from pokemon;
--- INSERT into pokemon_types(pokemon_id, type_name) values(1,'fire');
+-- insert into trainer(name, town) values ('brook', 'palet');
+-- select * from trainer;
+-- INSERT into pokemon_trainer(pokemon_id, trainer_name) values(3,'ash');
 
--- select * from types;
--- INSERT IGNORE into types(name) values('water');
--- SELECT * FROM pokemon_trainer
--- SELECT name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id AND pt.trainer_name ="rano"
--- SELECT name,COUNT(pokemon_id) FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id GROUP BY name
+-- select * from pokemon_trainer;
+-- DELETE FROM trainer WHERE name='fire';
+
+-- select * from pokemon_trainer;
+-- INSERT IGNORE into pokem(name) values('water');
+-- select * from trainer; 
+
+-- DELETE FROM pokemon;
+
+-- select * from pokemon;
+-- DELETE FROM trainer;
+
+select * from pokemon_types;
