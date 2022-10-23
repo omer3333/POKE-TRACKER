@@ -52,4 +52,6 @@ select * from types;
 -- select * from pokemon;
 -- DELETE FROM trainer;
 
-select * from pokemon_types;
+-- select * from pokemon_types;
+-- SELECT name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id AND pt.trainer_name ="Loga";
+SELECT name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id AND pt.trainer_name ="loga";
