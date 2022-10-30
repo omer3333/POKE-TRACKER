@@ -2,6 +2,7 @@
 from unicodedata import name
 from fastapi import Request
 from fastapi import APIRouter
+from pymysql import IntegrityError
 import requests
 from data_access import pokemon_queries, trainer_queries
 from services import pokeApi
@@ -23,5 +24,11 @@ async def evolve_pokemon(trainer_name,pokemon_name):
 
         return evolved_to
 
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=e.args[0])
+    except IntegrityError as e:
+        raise HTTPException(status_code=400, detail=e.args)
     except Exception as e:
-        raise HTTPException(status_code=404, detail=e.args[0])
+        raise HTTPException(status_code=404,detail=e.args[0])
+    except:
+        raise HTTPException(status_code=500, detail="something went wrong")

@@ -11,8 +11,8 @@ def get_pokemon(trainer_name):
             result = cursor.fetchall()
             return ([item["name"] for item in result])
 
-    except Exception as e:
-        return e
+    except:
+        raise KeyError("trainer name does not exist")
 
 
 def create_trainer(name, town):
@@ -21,8 +21,8 @@ def create_trainer(name, town):
             query = f"INSERT IGNORE into trainer(name, town) values('{name}','{town}')"
             cursor.execute(query)
             connection.commit()
-    except Exception as e:
-        return e
+    except:
+        raise Exception("could not create trainer")
 
 
 def get_trainer(name):
@@ -33,8 +33,8 @@ def get_trainer(name):
             result = cursor.fetchall()
             return result
             # return result[0] //need to be checked if something return, return result- if empty return empty array
-    except Exception as e:
-        return e
+    except:
+        raise KeyError("trainer name does not exist")
 
 
 def delete_pokemon_from_trainer(trainer_name, pokemon_name):
@@ -44,8 +44,7 @@ def delete_pokemon_from_trainer(trainer_name, pokemon_name):
             cursor.execute(delete_query)
             connection.commit()
     except Exception as e:
-        return e
-
+        raise e
 
 def update_trainer_city(trainer_name, town):
     try:
@@ -53,6 +52,5 @@ def update_trainer_city(trainer_name, town):
             query = f"update trainer set town='{town}' where name='{trainer_name}'"
             cursor.execute(query)
             connection.commit()
-    except Exception as e:
-        print(e)
-        return e
+    except:
+        raise KeyError("Trainer name is incorrect")

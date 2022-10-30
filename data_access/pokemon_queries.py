@@ -10,8 +10,8 @@ def heaviest_pokemon():
             result = cursor.fetchall()
             return result
 
-    except error as e:
-        return e
+    except:
+        raise Exception("Couldn't find heviest pokemon")
 
 
 def find_by_type(type):
@@ -23,8 +23,9 @@ def find_by_type(type):
             return ([item["name"] for item in result])
             # return [{"name": item["name"], "type": type} for item in result]
 
-    except error as e:
-        return e
+    except:
+        raise KeyError("pokemon type is incorrect")
+
 
 
 def find_owners(pokemon_name):
@@ -35,8 +36,9 @@ def find_owners(pokemon_name):
             result = cursor.fetchall()
             return ([owner["trainer_name"] for owner in result])
 
-    except error as e:
-        return e
+    except:
+        raise KeyError("pokemon name does not exist")
+
 
 
 def most_owned_pokemon():
@@ -47,8 +49,9 @@ def most_owned_pokemon():
             result = cursor.fetchall()
             return ([item["name"] for item in result])
 
-    except error as e:
-        return e
+    except:
+        raise Exception("Couldn't find most owned pokekmon")
+
 
 
 def get_pokemon(name):
@@ -59,43 +62,29 @@ def get_pokemon(name):
             result = cursor.fetchall()
             return result
 
-    except error as e:
-        return e
+    except:
+        raise KeyError("pokemon name does not exist")
+
 
 
 def insert_pokemon_types(pokemon_id, type_name):
-    try:
-        with connection.cursor() as cursor:
-            query = f"INSERT into pokemon_types(pokemon_id, type_name) values({pokemon_id},'{type_name}')"
-            print(query)
-            cursor.execute(query)
-            connection.commit()
+    with connection.cursor() as cursor:
+        query = f"INSERT into pokemon_types(pokemon_id, type_name) values({pokemon_id},'{type_name}')"
+        cursor.execute(query)
+        connection.commit()
 
-    except Exception as e:
-        print(e)
 
 
 def insert_type(name):
-    try:
-        with connection.cursor() as cursor:
-            query = f"INSERT IGNORE into types(name) values('{name}')"
-            cursor.execute(query)
-            connection.commit()
-    except Exception as e:
-        print(e)
-
-
-    # print(find_owners("pikachu"))
-# print(find_roster("Loga"))
-print(most_owned_pokemon())
+    with connection.cursor() as cursor:
+        query = f"INSERT IGNORE into types(name) values('{name}')"
+        cursor.execute(query)
+        connection.commit()
 
 
 def insert_pokemon(id, name, height, weight):
-    try:
-        with connection.cursor() as cursor:
-            query = f"INSERT IGNORE into pokemon(id, name, height, weight) values({id}, '{name}', {height},{weight})"
-            cursor.execute(query)
-            connection.commit()
+    with connection.cursor() as cursor:
+        query = f"INSERT IGNORE into pokemon(id, name, height, weight) values({id}, '{name}', {height},{weight})"
+        cursor.execute(query)
+        connection.commit()
 
-    except Exception as e:
-        print(e)
