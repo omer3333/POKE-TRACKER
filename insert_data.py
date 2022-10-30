@@ -63,7 +63,7 @@ def insert_pokemon_types(pokemon_id, type_name):
 
 # insert_pokemon(1, "balbazor", 100, 60)
 # insert_trainer("ash", "tel-aviv")
-insert_type("fire")
+# insert_type("fire");
 
 # def setup_db(data):
 #     trainers = {}

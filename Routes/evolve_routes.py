@@ -22,6 +22,6 @@ async def evolve_pokemon(trainer_name,pokemon_name):
         insert_pokemon_trainer(pokemon_id, trainer_name)
 
         return evolved_to
-        
+
     except Exception as e:
-        raise HTTPException(status_code=404, detail= e.args[0])
+        raise HTTPException(status_code=404, detail=e.args[0])
