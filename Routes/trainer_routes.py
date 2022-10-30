@@ -33,3 +33,5 @@ async def update_city(trainer_name, requset: Request):
     body = await requset.json()
     trainer_queries.update_trainer_city(trainer_name, body["town"])
     return trainer_queries.get_trainer(trainer_name)
+
+

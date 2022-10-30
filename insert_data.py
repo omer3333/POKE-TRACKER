@@ -92,18 +92,18 @@ def insert_pokemon_trainer(pokemon_id, trainer_name):
         print(e)
 
 
-# def insert_all(json_file):
-#     with open(json_file) as f:
-#         data = json.loads(f.read())
-#         for pokemon in data:
-#             insert_pokemon(pokemon["id"], pokemon["name"],
-#                            pokemon["height"], pokemon["weight"])
-#             insert_type(pokemon["type"])
-#             insert_pokemon_types(pokemon["id"], pokemon["type"])
+def insert_all(json_file):
+    with open(json_file) as f:
+        data = json.loads(f.read())
+        for pokemon in data:
+            insert_pokemon(pokemon["id"], pokemon["name"],
+                           pokemon["height"], pokemon["weight"])
+            insert_type(pokemon["type"])
+            insert_pokemon_types(pokemon["id"], pokemon["type"])
 
-#             for owner in pokemon["ownedBy"]:
-#                 insert_trainer(owner["name"], owner["town"])
-#                 insert_pokemon_trainer(pokemon["id"], owner["name"])
+            for owner in pokemon["ownedBy"]:
+                insert_trainer(owner["name"], owner["town"])
+                insert_pokemon_trainer(pokemon["id"], owner["name"])
 
 
 # insert_pokemon(2, "balbazor", 100, 60)
@@ -112,4 +112,4 @@ def insert_pokemon_trainer(pokemon_id, trainer_name):
 # insert_pokemon_types(1, "water")
 # insert_pokemon(3, "charizard", 200, 100)
 # insert_pokemon_trainer(2, 'brook')
-insert_all("pokemon_data.json")
+# insert_all("pokemon_data.json")

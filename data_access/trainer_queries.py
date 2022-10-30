@@ -56,3 +56,4 @@ def update_trainer_city(trainer_name, town):
     except Exception as e:
         print(e)
         return e
+
