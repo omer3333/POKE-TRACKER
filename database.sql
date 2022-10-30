@@ -55,3 +55,8 @@ USE poketracker;
 -- select * from pokemon_types;
 -- SELECT name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id AND pt.trainer_name ="Loga";
 -- SELECT name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id AND pt.trainer_name ="loga";
+
+select * from pokemon_trainer where trainer_name = 'whitney';
+-- select * from pokemon_trainer;
+-- delete pt from pokemon_trainer as pt join pokemon on pokemon.id=pt.pokemon_id where pt.trainer_name='Whitney' and pokemon.name='venusaur';
+-- INSERT IGNORE into pokemon_trainer(pokemon_id, trainer_name) values(3, 'Whitney');

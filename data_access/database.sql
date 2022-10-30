@@ -84,4 +84,9 @@ USE poketracker;
 
 -- SELECT name FROM pokemon WHERE MAX(weight);
 -- SELECT name FROM pokemon WHERE type='water';
-SELECT trainer_name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id = pt.pokemon_id AND p.name ='gengar';
+-- SELECT trainer_name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id = pt.pokemon_id AND p.name ='gengar';
+
+
+-- select * from pokemon_trainer where trainer_name="ash"; 
+
+select * from pokemon_types where pokemon_id=133; 

@@ -40,7 +40,7 @@ def get_trainer(name):
 def delete_pokemon_from_trainer(trainer_name, pokemon_name):
     try:
         with connection.cursor() as cursor:
-            delete_query = f"delete from pokemon_trainer as pt join pokemon on pokemon.id=pt.pokemon_id where pt.trainer_name='{trainer_name}' and pokemon.name='{pokemon_name}'"
+            delete_query = f"delete pt from pokemon_trainer as pt join pokemon on pokemon.id=pt.pokemon_id where pt.trainer_name='{trainer_name}' and pokemon.name='{pokemon_name}'"
             cursor.execute(delete_query)
             connection.commit()
     except Exception as e:
@@ -56,4 +56,3 @@ def update_trainer_city(trainer_name, town):
     except Exception as e:
         print(e)
         return e
-

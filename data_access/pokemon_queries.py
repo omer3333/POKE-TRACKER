@@ -81,10 +81,21 @@ def insert_type(name):
             query = f"INSERT IGNORE into types(name) values('{name}')"
             cursor.execute(query)
             connection.commit()
+    except Exception as e:
+        print(e)
 
-    except:
-        print("Error")
 
     # print(find_owners("pikachu"))
 # print(find_roster("Loga"))
 print(most_owned_pokemon())
+
+
+def insert_pokemon(id, name, height, weight):
+    try:
+        with connection.cursor() as cursor:
+            query = f"INSERT IGNORE into pokemon(id, name, height, weight) values({id}, '{name}', {height},{weight})"
+            cursor.execute(query)
+            connection.commit()
+
+    except Exception as e:
+        print(e)

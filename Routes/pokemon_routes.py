@@ -1,5 +1,5 @@
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 import requests
 from data_access import pokemon_queries
 
@@ -28,3 +28,17 @@ async def get_pokemon_types(pokemon_name):
             pokemon_queries.insert_type(type)
             pokemon_queries.insert_pokemon_types(pokemon_id, type)
     return pokemon
+
+
+@router.get("/type/{type}", status_code=200)
+async def find_by_type(type):
+    return pokemon_queries.find_by_type(type)
+
+
+@router.post("/", status_code=201)
+async def add_pokemon(request: Request):
+    body = request.json()
+    pokemon_queries.insert_pokemon(
+        body.id, body.name, body.height, body.weight)
+    for type in body.types:
+        pokemon_queries.insert_pokemon_types(body.id, type)
