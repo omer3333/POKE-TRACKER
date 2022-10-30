@@ -50,7 +50,8 @@ USE poketracker;
 -- DELETE FROM pokemon;
 
 -- select * from pokemon;
--- DELETE FROM trainer;
+DELETE FROM trainer;
+-- DELETE FROM types;
 
 -- select * from pokemon_types;
 -- SELECT name FROM pokemon AS p ,pokemon_trainer AS pt WHERE p.id=pt.pokemon_id AND pt.trainer_name ="Loga";

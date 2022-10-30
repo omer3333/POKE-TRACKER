@@ -12,11 +12,11 @@ from insert_data import *
 router = APIRouter(prefix="/evolve")
 
 
-@router.put("/{trainer_name}/pokemons/{pokemon_name}")
+@router.put("/{trainer_name}/pokemons/{pokemon_name}", status_code=201)
 async def evolve_pokemon(trainer_name,pokemon_name):
     try:
         evolved_to = await pokeApi.get_next_evolution(pokemon_name)
-        pokemon_id = pokemon_queries.get_pokemon(evolved_to)["id"]
+        pokemon_id = pokemon_queries.get_pokemon(evolved_to)[0]["id"]
         
         trainer_queries.delete_pokemon_from_trainer(trainer_name,pokemon_name)
         insert_pokemon_trainer(pokemon_id, trainer_name)
