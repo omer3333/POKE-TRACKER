@@ -1,5 +1,4 @@
 import requests
-import json
 
 async def get_pokemon_evolution_chain(pokemon_name):
     try:
