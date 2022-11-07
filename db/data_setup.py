@@ -24,8 +24,6 @@ def insert_pokemon(id, name, height, weight):
         connection.commit()
 
 
-
-
 def insert_trainer(name, town):
     with connection.cursor() as cursor:
         query = f"INSERT IGNORE into trainer(name, town) values('{name}','{town}')"
@@ -33,14 +31,11 @@ def insert_trainer(name, town):
         connection.commit()
  
 
-
 def insert_type(name):
     with connection.cursor() as cursor:
         query = f"INSERT IGNORE into types(name) values('{name}')"
         cursor.execute(query)
         connection.commit()
-
-
 
 def insert_pokemon_types(pokemon_id, type_name):
     with connection.cursor() as cursor:
@@ -53,9 +48,6 @@ def insert_pokemon_trainer(pokemon_id, trainer_name):
         query = f"INSERT into pokemon_trainer(pokemon_id, trainer_name) values({pokemon_id}, '{trainer_name}')"
         cursor.execute(query)
         connection.commit()
-
-
-
 
 def insert_all(json_file):
     with open(json_file) as f:
