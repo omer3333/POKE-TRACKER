@@ -17,7 +17,9 @@ def get_pokemons_by_trainer(trainer_name:str)->list:
 
 @router.post("/", status_code=201)
 async def create_trainer(request: Request) ->None:
+    #TODO: Remove async and await
     body = await request.json()
+    #TODO: Parameters validation
     trainer.create_trainer(body["name"], body["town"])
     return trainer.get_trainer(body["name"])
 
@@ -29,6 +31,7 @@ def delete_pokemon_from_trainer(trainer_name:str, pokemon_name:str)-> None:
 
 @router.put("/{trainer_name}", status_code=201)
 async def update_city(trainer_name:str, requset: Request) -> None:
+    #TODO: Async and await
     body = await requset.json()
     trainer.update_trainer_city(trainer_name, body["town"])
     return trainer.get_trainer(trainer_name)
