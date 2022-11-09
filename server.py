@@ -5,6 +5,7 @@ from Routes import evolve_routes
 import uvicorn
 
 
+
 app = FastAPI()
 app.include_router(pokemon_routes.router)
 app.include_router(trainer_routes.router)
